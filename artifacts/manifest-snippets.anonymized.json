@@ -1,0 +1,29 @@
+{
+  "_comment": "Redacted excerpts only. Full traces live under astro_bot/staging-runs/<run_id>/manifest.json (may contain fixture names and geo text).",
+  "staging_passport_truth": {
+    "before_varga_exclusion": {
+      "run_id": "0f8440ac-42df-48b3-ae97-74a4ec29f327",
+      "started_at_iso": "2026-05-08T12:40:57.505Z",
+      "stagingPassportTruthOk": false,
+      "stagingPassportTruthMd_excerpt": "## Паспорт ↔ geo_snapshots (детерминированно)\n\n### Расхождения passport.planets/lagna ↔ geo\n*Не найдено.*\n\n### Эвристика: вся проза паспорта ↔ структура (interpretation + йоги + варги + psych.reasoning)\n*То же поле зрения, что у модели в `passportPromptBlock`: свободный текст vs строки `planets`/`lagna` в JSON.*\n- Фраза про лагну «в Стрелец» при структурной лагне **Лев** — проверь текст interpretation.\n- Фраза про лагну «в Телец» при структурной лагне **Лев** — проверь текст interpretation.\n- Фраза про лагну «в Водолей» при структурной лагне **Лев** — проверь текст interpretation.\n\n**STAGING_PASSPORT_TRUTH_STATUS:** FAIL",
+      "diagnosis": "False positive: heuristic scanned divisional-chart prose (D9/D10/D7 ascendants in vargas.keyPlacements), not radix D1 lagna contradiction."
+    },
+    "after_varga_exclusion": {
+      "run_id": "f96ee10b-669c-498b-8994-9214e8d54bcf",
+      "started_at_iso": "2026-05-08T13:53:23.374Z",
+      "stagingPassportTruthOk": true,
+      "stagingPassportTruthMd_excerpt": "## Паспорт ↔ geo_snapshots (детерминированно)\n\n### Расхождения passport.planets/lagna ↔ geo\n*Не найдено.*\n\n### Эвристика: проза радикса ↔ структура D1 (interpretation + йоги + psych.reasoning; варги исключены)\n*То же поле зрения, что у модели в `passportPromptBlock`: свободный текст vs строки `planets`/`lagna` в JSON.*\n*Подозрительных конструкций «планета … в чужом знаке» не найдено.*\n\n**STAGING_PASSPORT_TRUTH_STATUS:** OK",
+      "code_change": "staging-passport-truth-audit.ts: removed vargas.*.keyPlacements from prose blob for lagna/sign heuristic; report title and hints updated; regression test added."
+    }
+  },
+  "composer_vs_deterministic_audit": {
+    "_note": "composer_skin_notes are LLM-generated audits per graph step; stagingPassportTruthMd is deterministic code. They answer different questions.",
+    "example_run_id": "0f8440ac-42df-48b3-ae97-74a4ec29f327",
+    "composer_typical_findings": [
+      "Empty bundle early steps: no level-1 chart to verify (expected).",
+      "Later steps: digbala strongest vs full shadbala strongest — different metrics, flag as confusion risk not ephemeris bug.",
+      "Beneficence table column vs placement in geo digest — relational/lordship semantics vs house position.",
+      "Optional: typo in interpretation prose vs calculation."
+    ]
+  }
+}
