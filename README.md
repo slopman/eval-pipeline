@@ -122,7 +122,3 @@ So one run could **FAIL** deterministic checks on a bad heuristic while Composer
 </details>
 
 ---
-
-## Privacy / redistribution
-
-Do **not** publish raw `staging-runs/*.json` externally without redacting names, coordinates, and chat identifiers. Use `artifacts/manifest-snippets.anonymized.json` for demos.
